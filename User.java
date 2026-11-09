@@ -22,8 +22,14 @@ public abstract class User implements Serializable, HasMenu {
       System.out.println("Setting PIN to 0000");
       this.PIN = "0000";
     } // end if
-
   } // end setPIN
+  
+  public void changePIN(){
+    Scanner input = new Scanner(System.in);
+    System.out.println("Please enter a new 4 digit PIN: ");
+    String response = input.nextLine();
+    this.setPIN(response);
+  } // end start 
 
   public String getPIN(){
     return this.PIN;

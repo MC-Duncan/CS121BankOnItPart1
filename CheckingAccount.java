@@ -14,7 +14,7 @@ public class CheckingAccount implements HasMenu, Serializable {
     this.balance = 0d;
   } // end constructor
 
-  public CheckingAccount(doublebalance){
+  public CheckingAccount(double balance){
     this.balance = balance;
   } // end constructor
 
@@ -48,7 +48,7 @@ public class CheckingAccount implements HasMenu, Serializable {
 	System.out.println("Making a withdrawl... ");
         this.makeWithdrawal();
       } else {
-	System.out.println("Please enter 0, 1, 2, or 3 ";
+	System.out.println("Please enter 0, 1, 2, or 3 ");
       } // end if
     } // end while
   } // end start
@@ -76,7 +76,7 @@ public class CheckingAccount implements HasMenu, Serializable {
       System.out.println("Not a legal input. Changing to 0");
       result = 0d;
     } // end try
-    return result
+    return result;
   } // end getDouble
 
   public void checkBalance(){
@@ -90,15 +90,17 @@ public class CheckingAccount implements HasMenu, Serializable {
     if (deposit < 0){
       System.out.println("Please select a positive number");
     } else {
-      this.balance += this.deposit;
+      this.balance += deposit;
     } // end if
     System.out.println("New balance: " + this.getBalanceString());
   } // end makeDeposit
 
   public void makeWithdrawal(){
-    System.out.print("How much to withdraw?" ");
+    System.out.print("How much to withdraw? ");
     double withdrawal = this.getDouble();
-    if (withdrawal > this.balance){
+    if (withdrawal < 0){
+      System.out.println("Please select a positive number");
+    } else if (withdrawal > this.balance){
       System.out.println("Insufficient funds");
     } else {
       this.balance -= withdrawal;

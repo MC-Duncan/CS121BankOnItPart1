@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SavingssAccount extends CheckingAccount {
+public class SavingsAccount extends CheckingAccount {
  
   double interestRate = 05d;
 
@@ -15,7 +15,7 @@ public class SavingssAccount extends CheckingAccount {
 
   public double getInterestRate(){
     return this.interestRate;
-  // end getInterestRate
+  } // end getInterestRate
 
   public void calcInterest(){
     // note appplied by admin, not customer
